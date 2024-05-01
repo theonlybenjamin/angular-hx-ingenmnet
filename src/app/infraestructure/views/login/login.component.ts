@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { LoginFormComponent } from '../../../application/componentes/login-form/login-form.component';
 import { ILoginInformation } from '../../../domain/ports/models/login-information.interface';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { LoginPort } from '../../../domain/ports/login/login.port';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,16 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-
-
-  doLogin(userInformation: ILoginInformation): void {
+  
+  constructor(
+    private loginService: LoginPort,
+    private router: Router
+  ) {
     
+  }
+  doLogin(userInformation: ILoginInformation): void {
+    this.loginService.login(userInformation).then(() => {
+      this.router.navigate(['dashboard']);
+    })
   }
 }
