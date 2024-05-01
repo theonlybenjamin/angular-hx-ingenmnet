@@ -1,0 +1,12 @@
+<h1>Ingresa tus credenciales</h1>
+<form class="login-form-container" [formGroup]="userCredentialsForm">
+    <mat-form-field class="full-width">
+      <mat-label>Nombre de usuario</mat-label>
+      <input type="email" matInput formControlName="userName" placeholder="Ex. pat@example.com">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Contraseña</mat-label>
+      <input type="password" matInput formControlName="password" placeholder="Ingrese su contras">
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="full-width" (click)="sendUserCredentials()">Iniciar sesión</button>
+</form>
