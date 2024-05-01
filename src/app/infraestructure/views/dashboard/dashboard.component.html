@@ -1,18 +1,29 @@
-<mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-      <p>Auto-resizing sidenav</p>
-      @if (showFiller) {
-        <p>Lorem, ipsum dolor sit amet consectetur.</p>
-      }
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Toggle extra text
-      </button>
+<mat-drawer-container class="navlist-container" autosize>
+    <mat-drawer #drawer class="left-sidenav" mode="side">
+      <mat-nav-list>
+        <div class="nav-items" routerLink="listar-ordenes">
+            <span href="">Listado de ordenes</span>
+        </div>
+        <div class="nav-items" routerLink="registrar-orden">
+            <span href="">Registro de orden</span>
+        </div>
+      </mat-nav-list>
     </mat-drawer>
   
     <div class="example-sidenav-content">
-      <button type="button" mat-button (click)="drawer.toggle()">
+      <button type="button" mat-button>
         Toggle sidenav
       </button>
+
     </div>
-  
+    <h1>CARGANDO MIS RUTAS HIJAS: </h1>
+    <router-outlet/>
+    <mat-drawer-content>
+        <header class="header">
+            <button mat-icon-button color="accent" (click)="drawer.toggle()" aria-label="Example icon button with a menu icon">
+                <mat-icon>menu</mat-icon>
+              </button>
+        </header>
+    </mat-drawer-content>
   </mat-drawer-container>
+  

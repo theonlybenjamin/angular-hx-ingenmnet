@@ -1,0 +1,31 @@
+$primary: #002244;
+
+.navlist-container {
+    height: 100vh;
+
+    .left-sidenav {
+        width: 300px;
+        background-color: $primary;
+        color: white
+    }
+    mat-nav-list {
+        margin-top: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .nav-items{
+            width: 100%;
+            color: white;
+            margin: 30px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+
+    .header {
+        background-color: $primary;
+        height: 60px;
+        color: white;
+    }
+}
