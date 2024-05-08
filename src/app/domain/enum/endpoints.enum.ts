@@ -1,3 +1,5 @@
 export enum Endpoints {
-    LOGIN = 'api/Auth/login'
+    LOGIN = 'Auth/login',
+    LIST_ORDER = 'Order/get-all-by-date-range',
+    DELETE_ORDER = 'Order/delete',
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,10 +7,12 @@ import { Injectable } from '@angular/core';
 export class SessionServiceService {
   private expirationTime: number = Number(localStorage.getItem('expirationTime'));
   public timeLeft: number = 0;
+  public formattedTimer: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
   public startTime(): void {
     setInterval(() => {
       this.timeLeft = this.calculateTimeleft();
-      console.log(this.formatTime(this.timeLeft));
+      this.formattedTimer.next(this.formatTime(this.timeLeft));
     }, 1000);
   }
 
@@ -19,7 +22,7 @@ export class SessionServiceService {
     return Math.max(0, this.expirationTime - now);
   }
 
-  private formatTime(timestamp: number): string {
+  public formatTime(timestamp: number): string {
     const hours = Math.floor(timestamp / 3600);
     const minutes = Math.floor((timestamp % 3600) / 60);
     const seconds = Math.floor(timestamp % 60);

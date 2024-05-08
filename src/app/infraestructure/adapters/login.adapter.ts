@@ -11,7 +11,7 @@ import { ILoginDTO } from "../../domain/ports/login/login.dto";
 export class LoginAdapter implements LoginPort {
     private httpMask = inject(HttpMask);
     login(userInformation: ILoginInformation): Promise<ILoginDTO> {
-        return this.httpMask.post<ILoginDTO>(`https://capacitacion.cedhetec.com/${Endpoints.LOGIN}`, userInformation).then(
+        return this.httpMask.post<ILoginDTO>(Endpoints.LOGIN, userInformation).then(
             response => {
                 localStorage.setItem('token', response.accessToken);
                 localStorage.setItem('expirationTime', response.expirationTime.toString());

@@ -6,6 +6,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { LoginPort } from './domain/ports/login/login.port';
 import { LoginAdapter } from './infraestructure/adapters/login.adapter';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { OrderPort } from './domain/ports/order/order.port';
+import { OrderAdapter } from './infraestructure/adapters/order.adapter';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +17,10 @@ export const appConfig: ApplicationConfig = {
     {
       provide: LoginPort,
       useClass: LoginAdapter
+    },
+    {
+      provide: OrderPort,
+      useClass: OrderAdapter
     },
     {
       provide: MAT_DATE_LOCALE,

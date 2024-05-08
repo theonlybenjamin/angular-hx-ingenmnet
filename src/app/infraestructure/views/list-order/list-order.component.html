@@ -1,4 +1,5 @@
 <div class="container">
-    <app-search-order></app-search-order>
-    <app-list-order-table></app-list-order-table>
+    <app-search-order (emitSearchOrder)="searchOrder($event)"></app-search-order>
+    <app-list-order-table [dataSource]="listOrderResult" (activateOrder)="activateOrder($event)"
+        (deactivateOrder)="deactivateOrder($event)" (deleteOrder)="deleteOrder($event)"></app-list-order-table>
 </div>

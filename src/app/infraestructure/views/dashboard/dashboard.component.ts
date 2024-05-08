@@ -4,7 +4,6 @@ import { MatListModule } from '@angular/material/list';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClient } from '@angular/common/http';
 import { SessionServiceService } from '../../../application/services/session-service.service';
 @Component({
   selector: 'app-dashboard',
@@ -27,9 +26,10 @@ export class DashboardComponent {
   constructor(
     private sessionService: SessionServiceService  
   ) {
+    this.sessionService.startTime();
+    this.sessionService.formattedTimer.subscribe(timer => this.timer = timer);
   }
   closeSession(): void{
     alert('Cerrando sesion...');
-    this.sessionService.startTime();
   }
 }
