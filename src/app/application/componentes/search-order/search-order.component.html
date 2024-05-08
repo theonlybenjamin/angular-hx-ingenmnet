@@ -1,0 +1,13 @@
+<div class="search-container">
+    <mat-form-field>
+        <mat-label>Ingresa un rango de fechas</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Fecha inicio">
+            <input matEndDate placeholder="Fecha fin">
+        </mat-date-range-input>
+        <mat-hint>DD/MM/YYYY – DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+    <button class="search-button" mat-flat-button color="primary">Buscar</button>
+</div>

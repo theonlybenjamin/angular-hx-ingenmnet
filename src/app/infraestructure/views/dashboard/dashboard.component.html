@@ -10,20 +10,17 @@
       </mat-nav-list>
     </mat-drawer>
   
-    <div class="example-sidenav-content">
-      <button type="button" mat-button>
-        Toggle sidenav
-      </button>
-
-    </div>
-    <h1>CARGANDO MIS RUTAS HIJAS: </h1>
-    <router-outlet/>
     <mat-drawer-content>
         <header class="header">
-            <button mat-icon-button color="accent" (click)="drawer.toggle()" aria-label="Example icon button with a menu icon">
+            <button mat-icon-button color="accent" (click)="drawer.toggle()">
                 <mat-icon>menu</mat-icon>
               </button>
+              <span class="counter">
+                {{ timer }}
+              </span>
+              <button class="logout" mat-flat-button color="warn" (click)="closeSession()">Cerrar sesión</button>
         </header>
+        <router-outlet/>
     </mat-drawer-content>
   </mat-drawer-container>
   
