@@ -1,4 +1,4 @@
-import { ILoginInformation } from "../models/login-information.interface";
+import { ILoginInformation } from "./login-information.interface";
 import { ILoginDTO } from "./login.dto";
 
 export abstract class LoginPort {

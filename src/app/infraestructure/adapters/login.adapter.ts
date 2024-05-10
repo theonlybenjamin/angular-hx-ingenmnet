@@ -1,5 +1,5 @@
 import { LoginPort } from "../../domain/ports/login/login.port";
-import { ILoginInformation } from "../../domain/ports/models/login-information.interface";
+import { ILoginInformation } from "../../domain/ports/login/login-information.interface";
 import { Injectable, inject } from "@angular/core";
 import { HttpMask } from "../mask/http.mask";
 import { Endpoints } from "../../domain/enum/endpoints.enum";

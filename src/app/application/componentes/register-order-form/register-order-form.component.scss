@@ -1,0 +1,17 @@
+.inputs-container {
+    display: flex;
+    align-items: center;
+    .field {
+        margin: 0 20px;
+        &.radio-button {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+        }
+    }
+}
+.actions-buttons {
+    button{
+        margin: 0 10px;
+    }
+}

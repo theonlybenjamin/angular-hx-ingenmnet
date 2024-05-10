@@ -1,0 +1,15 @@
+.no-data {
+    padding: 20px;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    justify-content: center;
+
+    button {
+        margin-left: 20px;
+        height: 60px;
+    }
+}

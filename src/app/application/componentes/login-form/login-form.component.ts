@@ -3,7 +3,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ILoginInformation } from '../../../domain/ports/models/login-information.interface';
+import { ILoginInformation } from '../../../domain/ports/login/login-information.interface';
 @Component({
   selector: 'app-login-form',
   standalone: true,

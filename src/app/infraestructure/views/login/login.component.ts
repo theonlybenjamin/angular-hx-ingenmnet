@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginFormComponent } from '../../../application/componentes/login-form/login-form.component';
-import { ILoginInformation } from '../../../domain/ports/models/login-information.interface';
+import { ILoginInformation } from '../../../domain/ports/login/login-information.interface';
 import { Router } from '@angular/router';
 import { LoginPort } from '../../../domain/ports/login/login.port';
 
