@@ -13,11 +13,15 @@ export class HttpMask {
         return lastValueFrom(this.httpClient.post<T>(this.contextUrl + url, body));
     }
 
-    get<T>(url: string, headers: HttpHeaders): Promise<T> {
-        return lastValueFrom(this.httpClient.get<T>(this.contextUrl + url, { headers }));
+    get<T>(url: string): Promise<T> {
+        return lastValueFrom(this.httpClient.get<T>(this.contextUrl + url));
     }
 
-    delete<T>(url: string, headers: HttpHeaders): Promise<T> {
-        return lastValueFrom(this.httpClient.delete<T>(this.contextUrl + url, { headers }));
+    delete<T>(url: string): Promise<T> {
+        return lastValueFrom(this.httpClient.delete<T>(this.contextUrl + url));
+    }
+
+    patch<T>(url: string, body: any): Promise<T> {
+        return lastValueFrom(this.httpClient.patch<T>(this.contextUrl + url, body));
     }
 }

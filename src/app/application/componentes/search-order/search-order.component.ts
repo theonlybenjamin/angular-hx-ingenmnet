@@ -5,6 +5,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ISearchOrderRequest } from '../../../domain/ports/order/order.request';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-search-order',

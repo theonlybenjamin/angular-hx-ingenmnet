@@ -8,6 +8,13 @@
         <mat-hint>DD/MM/YYYY – DD/MM/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
+        @if(rangeDate.controls['start'].hasError('matStartDateInvalid')) {
+        <mat-error>Fecha de inicio invalida</mat-error>
+        } @else if (rangeDate.controls['end'].hasError('matEndDateInvalid')) {
+        <mat-error>Fecha de fin invalida</mat-error>
+        } @else {
+        <mat-error>Fecha invalidas</mat-error>
+        }
     </mat-form-field>
-    <button class="search-button" mat-flat-button color="primary" (click)="searchOrder()">Buscar</button>
+    <button class="search-button" mat-flat-button color="primary" [disabled]="rangeDate.invalid" (click)="searchOrder()">Buscar</button>
 </div>

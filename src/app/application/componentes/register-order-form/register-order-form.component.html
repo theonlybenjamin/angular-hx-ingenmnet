@@ -1,0 +1,34 @@
+<form class="example-form" [formGroup]="registerOrderForm">
+    <mat-form-field>
+        <mat-label>Nombre de cliente</mat-label>
+        <input type="email" matInput formControlName="clientName">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Tipo de documento</mat-label>
+        <mat-select formControlName="documentTypeId"></mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Numero de documento</mat-label>
+        <input type="email" matInput formControlName="documentNumber">
+    </mat-form-field>
+    <mat-form-field class="example-form-field">
+        <mat-label>Seleccionar fecha</mat-label>
+        <input matInput [matDatepicker]="datepicker" formControlName="registerDate">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancelar</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+      <div class="radio-button">
+        <label for="">Boleta o Factura:</label>
+        <mat-radio-group aria-label="Select an option" formControlName="receiptType">
+            <mat-radio-button value="1">Boleta</mat-radio-button>
+            <mat-radio-button value="2">Factura</mat-radio-button>
+          </mat-radio-group>
+      </div>
+
+</form>

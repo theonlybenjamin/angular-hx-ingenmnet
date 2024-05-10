@@ -8,12 +8,21 @@ export class SessionServiceService {
   private expirationTime: number = Number(localStorage.getItem('expirationTime'));
   public timeLeft: number = 0;
   public formattedTimer: BehaviorSubject<string> = new BehaviorSubject<string>('');
-
+  public intervalId: any;
   public startTime(): void {
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       this.timeLeft = this.calculateTimeleft();
       this.formattedTimer.next(this.formatTime(this.timeLeft));
+      if (this.timeLeft === 0) {
+        this.closeSession();
+      }
     }, 1000);
+  }
+
+  public closeSession(): void {
+    localStorage.removeItem('token');
+    window.location.href = '';
+    clearInterval(this.intervalId);
   }
 
   private calculateTimeleft(): number {
@@ -28,7 +37,7 @@ export class SessionServiceService {
     const seconds = Math.floor(timestamp % 60);
 
     const paddedhours = hours > 0 ? `0${hours}:` : '';
-    const paddedMinutes = minutes ;
+    const paddedMinutes = minutes;
     const paddedSeconds = seconds < 10 ? `0${seconds}` : seconds;
 
     return `${paddedhours}${paddedMinutes}:${paddedSeconds}`;

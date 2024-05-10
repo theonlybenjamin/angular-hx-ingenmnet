@@ -38,12 +38,12 @@
                     <mat-icon>delete</mat-icon>
                 </button>
                 @if (element.stateId === 1) {
-                <button mat-icon-button color="warn" matTooltip="Dar de baja" (click)="activateOrderEmit(element.orderId)"
+                <button mat-icon-button color="warn" matTooltip="Dar de baja" (click)="deactivateOrderEmit(element.orderId)"
                     aria-label="Example icon button with a home icon">
                     <mat-icon>thumb_down</mat-icon>
                 </button>
                 } @else {
-                <button mat-icon-button color="primary" matTooltip="Activar" (click)="deactivateOrderEmit(element.orderId)"
+                <button mat-icon-button color="primary" matTooltip="Activar" (click)="activateOrderEmit(element.orderId)"
                     aria-label="Example icon button with a home icon">
                     <mat-icon>thumb_up</mat-icon>
                 </button>

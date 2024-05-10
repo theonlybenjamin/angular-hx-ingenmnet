@@ -30,6 +30,6 @@ export class DashboardComponent {
     this.sessionService.formattedTimer.subscribe(timer => this.timer = timer);
   }
   closeSession(): void{
-    alert('Cerrando sesion...');
+    this.sessionService.closeSession();
   }
 }
