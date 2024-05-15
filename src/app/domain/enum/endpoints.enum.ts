@@ -4,5 +4,6 @@ export enum Endpoints {
     DELETE_ORDER = 'Order/delete',
     UPDATE_ORDER = 'Order/update-state',
     GET_DOCUMENT_TYPES = 'TypeDocument/get-all-type-documents',
-    SEARCH_PRODUCTS = 'Product/get-all-product-by-name'
+    SEARCH_PRODUCTS = 'Product/get-all-product-by-name',
+    REGISTER_ORDER = 'Order/register'
 }

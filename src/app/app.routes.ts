@@ -24,6 +24,11 @@ export const routes: Routes = [
             {
                 path: 'registrar-orden',
                 loadComponent: () => import('./infraestructure/views/register-order/register-order.component').then(m => m.RegisterOrderComponent)
+            },
+            {
+                path: '',
+                redirectTo: 'registrar-orden',
+                pathMatch: 'full'
             }
         ]
     },

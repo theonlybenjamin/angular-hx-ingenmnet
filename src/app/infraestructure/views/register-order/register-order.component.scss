@@ -8,4 +8,12 @@
             padding: 20px;
         }
     }
+    .payment-resume-container {
+        display: flex;
+        justify-content: flex-end;
+        .payment-resume {
+            margin: 30px;
+            width: 300px;
+        }
+    }
 }

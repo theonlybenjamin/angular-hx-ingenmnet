@@ -4,11 +4,13 @@ import { ISearchOrderRequest } from "../../domain/ports/order/order.request";
 import { IOrderResponse } from "../../domain/ports/order/order.response";
 import { HttpMask } from "../mask/http.mask";
 import { Endpoints } from "../../domain/enum/endpoints.enum";
+import { IOrder } from "../../domain/ports/order/register-order.request";
 
 export class OrderAdapter implements OrderPort {
     private httpMask: HttpMask = inject(HttpMask);
     listOrderPerDate(rangeDateSearch: ISearchOrderRequest): Promise<IOrderResponse[]> {
-        return this.httpMask.get<IOrderResponse[]>(`${Endpoints.LIST_ORDER}/${rangeDateSearch.start}/${rangeDateSearch.end}`);
+
+        return this.httpMask.get<IOrderResponse[]>(`${Endpoints.LIST_ORDER}/${rangeDateSearch.start}/${rangeDateSearch.end}`)
     }
 
     deleteOrder(orderId: number): Promise<void> {
@@ -18,5 +20,9 @@ export class OrderAdapter implements OrderPort {
     updateOrderState(orderId: number, newStateId: number): Promise<void> {
         return this.httpMask.patch(Endpoints.UPDATE_ORDER + '/' + orderId, { stateId: newStateId });
 
+    }
+
+    registerOrder(order: IOrder): Promise<void> {
+        return this.httpMask.post(Endpoints.REGISTER_ORDER, order);
     }
 } 

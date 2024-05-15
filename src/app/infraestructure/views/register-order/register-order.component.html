@@ -1,5 +1,5 @@
 <div class="container">
-    <app-register-order-form [typesOfDocuments]="typesOfDocuments" (emitSearchProducts)="openSearchProductsDialog()"></app-register-order-form>
+    <app-register-order-form [typesOfDocuments]="typesOfDocuments" (emitSearchProducts)="openSearchProductsDialog()" (emitRegisterOrder)="registerOrder()"></app-register-order-form>
     <div class="products-table">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container matColumnDef="id">
@@ -19,7 +19,7 @@
     
             <ng-container matColumnDef="quantity">
                 <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-                <td mat-cell *matCellDef="let element"> {{element.quantity }} </td>
+                <td mat-cell *matCellDef="let element"> <input type="number" value="{{element.quantity}}" (change)="changeQuantityOfProduct($any($event).target.value, element.id)"> </td>
             </ng-container>
     
             <ng-container matColumnDef="finalPrice">
@@ -34,4 +34,13 @@
             </tr>
         </table>
     </div>
+    <section class="payment-resume-container">
+        <mat-card class="payment-resume">
+            <mat-card-content>
+                <p>Subtotal: S/. {{subtotal}}</p>
+                <p>IGV(18%): S/. {{igv}}</p>
+                <p>Total: S/. {{total}}</p>
+            </mat-card-content>
+        </mat-card>
+    </section>
 </div>

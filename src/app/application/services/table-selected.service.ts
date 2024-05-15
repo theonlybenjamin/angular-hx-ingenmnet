@@ -36,4 +36,11 @@ export class TableSelectedService {
       (productSelected, index, selfProductsSelectedArray) => index === selfProductsSelectedArray.findIndex(product => product.id === productSelected.id));
   }
 
+  changeQuantityOfProduct(newQuantity: number, productId: number): void {
+    const productsSelected: ProductTable[] = this.productSelected.getValue();
+    const indexToChange = productsSelected.findIndex(product => product.id === productId);
+    productsSelected[indexToChange].quantity = newQuantity;
+    productsSelected[indexToChange].finalPrice = Number((productsSelected[indexToChange].price * productsSelected[indexToChange].quantity).toFixed(2));
+    this.productSelected.next(productsSelected);
+  }
 }
